@@ -26,13 +26,13 @@ export async function postMessage() {
         });
        const messageData: NewMessageResponse = response.data;
        const result = newMessageResponseSchema.safeParse(messageData);
-
         if (!result.success) {
             alert("Post Error");
+            (document.getElementById("newMessage") as HTMLInputElement).value = newMessage
           }
         console.log("Success:", result);
-        document.getElementById("app")!.innerHTML = "";
-        load()
+        document.getElementById("app")!.innerHTML=""
+         load()
         chatLoader()
       } catch (error) {
         console.error("Error:", error);
