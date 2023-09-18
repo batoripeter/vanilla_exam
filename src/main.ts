@@ -24,5 +24,11 @@ export const load = () => {
 
 }
 
+function setRefresh() {
+  document.getElementById("app")!.innerHTML=""
+  load()
+  chatLoader()
+}
+setInterval(setRefresh,20000)
 
 

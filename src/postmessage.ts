@@ -16,7 +16,7 @@ type NewMessageResponse = z.infer<typeof newMessageArraySchema>;
 /////////post message
 
 export async function postMessage() {
-    let newMessage = (document.getElementById("newMessage") as HTMLInputElement).value
+    let newMessage = (document.getElementById("newMessage") as HTMLInputElement).value;
 
     try {
         const response = await http.post("http://localhost:8080/api/messages", {
@@ -26,13 +26,13 @@ export async function postMessage() {
         });
        const messageData: NewMessageResponse = response.data;
        const result = newMessageResponseSchema.safeParse(messageData);
+       (document.getElementById("app") as HTMLElement).innerHTML=""
         if (!result.success) {
             alert("Post Error");
             (document.getElementById("newMessage") as HTMLInputElement).value = newMessage
           }
         console.log("Success:", result);
-        document.getElementById("app")!.innerHTML=""
-         load()
+        load()
         chatLoader()
       } catch (error) {
         console.error("Error:", error);

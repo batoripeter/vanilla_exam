@@ -29,4 +29,3 @@ const chatResponseSchema = z.object({
 
     }
 
-  //setInterval(chatLoader,20000)
