@@ -11,6 +11,7 @@ const chatResponseSchema = z.object({
   const chatArraySchema = z.array(chatResponseSchema);
   type ChatResponse = z.infer<typeof chatArraySchema>;
 
+
     export const chatLoader = async () => {
     const response = await http.get("http://localhost:8080/api/messages");
     const chatFromJson: ChatResponse = response.data;
@@ -28,13 +29,4 @@ const chatResponseSchema = z.object({
 
     }
 
-    let input = document.createElement("input") as HTMLInputElement
-    input.type="text"
-    input.id="newMessage"
-    document.getElementById("app")!.appendChild(input)
-
-    let sendButton = document.createElement("button") as HTMLButtonElement
-
-    sendButton.textContent = "Send Message"
-    sendButton.id = "send-button"
-    document.getElementById("app")!.appendChild(sendButton)
+  
