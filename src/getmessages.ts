@@ -26,6 +26,8 @@ const chatResponseSchema = z.object({
      i++
     }
 
+    }
+
     let input = document.createElement("input") as HTMLInputElement
     input.type="text"
     input.id="newMessage"
@@ -36,5 +38,3 @@ const chatResponseSchema = z.object({
     sendButton.textContent = "Send Message"
     sendButton.id = "send-button"
     document.getElementById("app")!.appendChild(sendButton)
-
-    }
